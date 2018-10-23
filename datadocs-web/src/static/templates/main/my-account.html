@@ -1,0 +1,195 @@
+<div class="my-account add-source-modal">
+    <div class="my-account-content">
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="frm-title">BASICS</div>
+                </div>
+                <div class="col-md-8 pt8 pb30">
+                    <div class="form-group">
+                        <dl class="dl-horizontal">
+                            <dt>Name</dt>
+                            <dd>
+                                <div class="user-input">
+                                    <input class="form-control" id="fullname" ng-model="userToUpdate.fullName" type="text" ng-blur="onChangeFullName()" autofocus required>
+                                    <span ng-show="notificationUpdatedFor.name" class="notification">Changes saved.</span>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group">
+                        <dl class="dl-horizontal">
+                            <dt>Email</dt>
+                            <dd>
+                                <div>
+                                    <input class="form-control" ng-focus="showChangeEmailModal()" type="email" ng-model="user.email" id="email" required>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group" ng-if="!user.isConnectedWithGoogle">
+                        <dl class="dl-horizontal">
+                            <dt>Password</dt>
+                            <dd>
+                                <div>
+                                    <input class="form-control" ng-focus="showChangePasswordModal()" id="password" type="password" ng-model="password" required>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group" ng-if="user.isConnectedWithGoogle">
+                        <dl class="dl-horizontal">
+                            <dd>
+                                <span class="google-signup">You have created an account through Google, and do not have a datadocs password.
+                                If you would like to create a datadocs password, please sign out and use the Forgot password?</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="row account-preferences">
+                <div class="col-md-12">
+                    <div class="frm-title">PREFERENCES</div>
+                </div>
+                <div class="col-md-8 pt20 pb30">
+                    <div class="form-group">
+                        <dl class="dl-horizontal user-input">
+                            <dt>Time Zone</dt>
+                            <dd>
+                                <div uib-dropdown append-to-body class="dropdown">
+                                    <div uib-dropdown-toggle class="form-control">{{userToUpdate.timezone}}</div>
+                                    <ul class="dropdown-menu h-450" uib-dropdown-menu>
+                                        <li class="dropdown-menu-item" ng-click="updateUserTimezone(tz)" ng-repeat="tz in availableTimezones">
+                                            <a>({{tz.displayZone}}) {{tz.text}}</a>
+                                        </li>
+                                    </ul>
+                                    <span ng-show="notificationUpdatedFor.timeZone" class="notification">Changes saved.</span>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group">
+                        <dl class="dl-horizontal user-input">
+                            <dt>Date Format</dt>
+                            <dd>
+                                <div uib-dropdown append-to-body class="dropdown">
+                                    <div uib-dropdown-toggle class="form-control">{{userToUpdate.dateFormatType}}</div>
+                                    <ul class="dropdown-menu h-450" uib-dropdown-menu>
+                                        <li class="dropdown-menu-item" ng-click="dateFormatTypeSelected(dateformat)" ng-repeat="dateformat in dateFormatTypes"><a>{{dateformat}}</a></li>
+                                    </ul>
+                                    <span ng-show="notificationUpdatedFor.dateFormat" class="notification">Changes saved.</span>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group">
+                        <dl class="dl-horizontal user-input">
+                            <dt>Currency</dt>
+                            <dd>
+                                <div uib-dropdown append-to-body class="dropdown">
+                                    <div uib-dropdown-toggle class="form-control">{{userToUpdate.currencyType}}</div>
+                                    <ul class="dropdown-menu h-450" uib-dropdown-menu>
+                                        <li class="dropdown-menu-item" ng-click="currencyTypeSelected(currency)" ng-repeat="currency in currencyTypes"><a>{{currency}}</a></li>
+                                    </ul>
+                                    <span ng-show="notificationUpdatedFor.currency" class="notification">Changes saved.</span>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="frm-title">CONNECTED ACCOUNTS</div>
+                </div>
+                <div class="col-md-8" ng-if="user.isConnectedWithGoogle">
+                    <div class="form-group google">
+                        <dl class="dl-horizontal">
+                            <dt><img src="/static/img/main-page/google.png"/></dt>
+                            <dd class="pt8">
+                                <div class="pull-left">
+                                    <span>
+                                        GOOGLE
+                                    </span>
+                                    <div class="mailid">{{user.email}}</div>
+                                </div>
+                                <div class="pull-right">
+                                    <button type="button" ng-click="disconnectGoogle()" class="btn btn-default-flat-goog pull-right">DISCONNECT</button>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="col-md-8" ng-if="!user.isConnectedWithGoogle">
+                    <div class="form-group google">
+                        <dl class="dl-horizontal">
+                            <dt><img src="/static/img/main-page/google.png"/></dt>
+                            <dd class="pt8">
+                                <div class="pull-left">
+                                    <span>
+                                        GOOGLE
+                                    </span>
+                                </div>
+                                <div class="pull-right">
+                                    <google-auth button-id="gSignIn" options="options" mode="connect" title="Connect"></google-auth>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="row your-plan">
+                <div class="col-md-12">
+                    <div class="frm-title">YOUR PLAN</div>
+                </div>
+                <div class="col-md-8 pt10 pb20">
+                    <div class="form-group">
+                        <dl class="dl-horizontal">
+                            <dt>Your Plan</dt>
+                            <dd class="pt8">
+                                <span>{{getPlan()}}</span> <button type="button" ng-click="showMyAccountDetailsModal()" ng-if="getButtonLink() != ''" class="button-link">{{getButtonLink()}}</button>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group">
+                        <dl class="dl-horizontal">
+                            <dt>Payment</dt>
+                            <dd class="pt8">
+                                <span>{{getPaymentInfo().card}}</span> <button type="button" class="button-link" ng-click="showUpdateCreditCardModal()">{{getPaymentInfo().label}}</button>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group billing-hostory" ng-show="isShowBillingHistory">
+                        <dl class="dl-horizontal">
+                            <dt></dt>
+                            <dd class="">
+                                <i class="history-link">To view your billing history, <button type="button" class="button-link" ng-click="showBillingHistory()">click here</button></i>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="form-group">
+                        <dl class="dl-horizontal">
+                            <dt></dt>
+                            <dd class="">
+                                <i class="history-link"><button type="button" class="button-link" ng-click="showReportDataUsage()">Post To Stripe</button></i>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="isCompanyOwner || !isAccountTypeBusiness()">
+                <div class="col-md-12">
+                    <div class="frm-title">CANCEL ACCOUNT</div>
+                </div>
+                <div class="col-md-8">
+                    <div class="close-account">
+                        <span>Closing your account will remove all datadocs and sources.</span>
+                        <button type="button"
+                                class="btn btn-default-flat-goog pull-right"
+                                ng-click="showCloseAccountModal()">CLOSE ACCOUNT</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

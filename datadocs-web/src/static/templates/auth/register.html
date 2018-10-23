@@ -1,0 +1,100 @@
+<section class="login-panel">
+    <div class="register-content-wrapper col-lg-12 col-md-12">
+        <div class="content">
+            <div class="radio-option margin bld-600 text-center">
+                Already have an account? <a ui-sref="auth.login"> Log in </a>
+            </div>
+            <form ng-submit="submit()" name="registerForm" novalidate>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Create an Account</h3>
+                        <h4 ng-if = "fromJoinCompanyLink">to join your team on <span>{{companyName}}</span></h4>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="panel-content-wrapper">
+                            <section>
+                                <input id="usernameInput"
+                                       ng-model="user.username" placeholder="Username" class="form-control"
+                                       aria-describedby="username-addon" autocorrect="off" autocapitalize="none"
+                                       name="username"
+                                       required>
+                                <span class="error"
+                                      ng-show="submitted && registerForm.username.$error.required"> Username is required. </span>
+                            </section>
+                            <section>
+                                <input id="emailInput" type="email" ng-model="user.email" placeholder="Email"
+                                       class="form-control" aria-describedby="email-addon" autocorrect="off"
+                                       autocapitalize="none" ng-disabled = "fromJoinCompanyLink"
+                                       name="email"
+                                       ng-pattern="/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/"
+                                       required autofocus>
+                                <span class="error"
+                                      ng-show="submitted && registerForm.email.$error.required"> Email is required. </span>
+                                <span class="error"
+                                      ng-show="submitted && registerForm.email.$error.pattern"> Email is invalid. </span>
+
+                            </section>
+
+                            <section>
+                                <input id="nameInput"
+                                       ng-model="user.fullName" placeholder="Name" class="form-control"
+                                       aria-describedby="name-addon" autocorrect="off" autocapitalize="none"
+                                       name="name"
+                                       required>
+                                <span class="error"
+                                      ng-show="submitted && registerForm.name.$error.required"> Name is required. </span>
+                            </section>
+
+                            <section>
+                                <input type="password" ng-model="user.password" placeholder="Password"
+                                       class="form-control"
+                                       aria-describedby="password-addon" autocorrect="off" autocapitalize="none"
+                                       name="password"
+                                       ng-pattern="/^(?=.*[A-Za-z~!@#$%^&*()-._?:,+])(?=.*\d)[A-Za-z~!@#$%^&*()-._?:,+\d]{8,}$/"
+                                       required>
+                                <span class="error"
+                                      ng-show="submitted && registerForm.password.$error.required"> Password is required </span>
+                                <span class="error" ng-show="submitted && registerForm.password.$error.pattern"> Use 8 or more characters with a mix of letters & at least one number </span>
+
+                            </section>
+
+                            <section class="error-section" ng-show="error && error != ''">
+                                <div class="error" ng-bind="error"></div>
+                            </section>
+
+                            <section class="sign-in-button-wrapper pb4">
+                                <button type="submit" class="btn btn-primary-cstm sign-in" ladda="signingIn"
+                                        ng-click="submitted=true"> Create an
+                                    Account
+                                </button>
+                            </section>
+
+                            <section class="register-msg">
+                                <div class="messgae">
+                                    <div class="radio-option">
+                                        By creating an account, you are agreeing to our <a ui-sref="auth.login">Terms
+                                        of Use</a> and <a ui-sref="auth.login">Privacy Policy</a>.
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section>
+                                <hr>
+                                <div class="or-login">
+                                    Or sign up with
+                                </div>
+                                <div class="google-auth-wrapper">
+                                    <google-auth button-id="uniqueid" options="options"></google-auth>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </form>
+    </div>
+    </div>
+</section>

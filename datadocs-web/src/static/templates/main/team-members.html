@@ -1,0 +1,23 @@
+<div class="homescreen-wrapper sources-section team-members-content"
+     ng-class="{ 'file-details-opened': fileDetails.isOpen }" ng-if="isCompanyAdmin()">
+
+    <div class="container header-container">
+        <div sort-columns class="row"
+             sort-columns-options="columnsSectionsTeamMembers.sources"></div>
+    </div>
+
+    <div class="wrapper-for-spinner">
+        <div id="membersListId" class="container index-list-wrapper index-list-wrapper-with-spinner"
+             ng-select-items="ngSelectMembersSectionOptions"
+             enable-keyboard-navigation="true">
+            <div class="main-page-ds-pane"
+                 ng-repeat="u in account.members"
+                 ng-class="{'last': $last}"
+                 context-menu="memberItemOptions($event)"
+                 context-menu-options="memberContextMenuOptions"
+                 context-menu-open-event="contextmenu dblclick touchstart touchmove touchend">
+                <team-member-ds-pane></team-member-ds-pane>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<form class="delete-modal add-source-modal change-email-modal my-account-popups" name="changeEmail" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeChangeEmailModal()">&times;</button>
+        <h4 class="modal-title">
+            Change Email
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <dl class="dl-horizontal">
+                <dt>New Email</dt>
+                <dd>
+                    <div class="form-group">
+                        <input class="form-control" type="email"
+                               name="email"
+                               ng-model="email"
+                               ng-pattern="/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/"
+                               placeholder="Enter email"
+                               ng-disabled="emailCode"
+                               required>
+                        <span class="error"
+                              ng-show="emailClicked && changeEmail.email.$error.required"> Email is required. </span>
+                        <span class="error"
+                              ng-show="emailClicked && changeEmail.email.$error.pattern"> Email is invalid. </span>
+
+                        <span class="error" ng-show="error && error != ''" ng-bind="error"></span>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="email-code" ng-show="emailCode">
+            <hr />
+            <div class="form-group">
+                <dl class="dl-horizontal">
+                    <dt>Code</dt>
+                    <dd>
+                        <div class="form-group">
+                            <input class="form-control" type="number"
+                                   name="code"
+                                   ng-model="code"
+                                   required>
+                            <span class="error"
+                                  ng-show="codeEntered && changeEmail.code.$error.required"> Code is required. </span>
+                            <span class="error" ng-show="codeError && codeError != ''" ng-bind="codeError"></span>
+                        </div>
+                        <span>Please enter the authorization code sent to your email address.</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button"
+                class="btn btn-primary"
+                ng-show="!emailCode"
+                ng-click="sendCode()" autofocus>SEND CODE</button>
+
+        <button type="button"
+                class="btn btn-primary"
+                ng-show="emailCode"
+                ng-click="save()" autofocus>SAVE</button>
+
+        <button type="button"
+                class="btn btn-default-flat-goog pull-right"
+                ng-click="closeChangeEmailModal()" autofocus>Cancel</button>
+    </div>
+</form>

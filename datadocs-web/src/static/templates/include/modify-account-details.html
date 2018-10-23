@@ -1,0 +1,122 @@
+<form class="delete-modal add-source-modal my-account-details-modal my-account-popups" ng-submit="updateAccount()" id="update-account-form" name="myAccountDetails" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeMyAccountDetailsModal()">&times;</button>
+        <h4 class="modal-title">
+            My Account Details
+        </h4>
+    </div>
+    <div ng-if="accountDetailsUpdated" class="modal-body update-indicator">
+        <span><i class="fa fa-check-circle"></i>Your plan was succesfully {{getUpgradeDowngradeIndicator()}}.</span>
+    </div>
+    <div class="modal-body" ng-if="!accountDetailsUpdated">
+        <div class="form-group">
+            <dl class="dl-horizontal">
+                <dt>Account Type</dt>
+                <dd>
+                    <div uib-dropdown append-to-body class="dropdown">
+                        <div uib-dropdown-toggle class="form-control" ng-disabled="isAccountTypeBusiness()">{{member.accountType}}</div>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li class="dropdown-menu-item" ng-click="accountTypeSelected(choice)" ng-repeat="choice in madAccountType"><a>{{choice}}</a></li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="form-group" ng-show="isMemberAccountTypeBusiness()">
+            <dl class="dl-horizontal">
+                <dt>Company Name</dt>
+                <dd>
+                    <div>
+                        <input class="form-control" type="text"
+                               name="companyName"
+                               ng-model="member.companyName"
+                               required ng-disabled="isAccountTypeBusiness()">
+                        <span class="error"
+                              ng-show="madCompanyName && myAccountDetails.companyName.$error.required"> Company name is required. </span>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="form-group">
+            <dl class="dl-horizontal">
+                <dt>Plan Type</dt>
+
+                <dd ng-show="isMemberAccountTypeBusiness()">
+                    <li class="list-group-item"
+                        ng-class="{'active':user.accountType && !isFreePlan()}"
+                        ng-click="setPlanType('MONTHLY')">
+                        <label class="control control--radio"><b>Unlimited data</b> for $9.99/mo. + data usage*
+                            <div class="control__indicator"></div>
+                        </label>
+                    </li>
+                </dd>
+
+                <dd>
+                    <div uib-dropdown append-to-body class="dropdown" ng-show="!isMemberAccountTypeBusiness()">
+                        <div uib-dropdown-toggle class="form-control">{{member.planType}}</div>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li class="dropdown-menu-item" ng-click="planTypeSelected(plan)" ng-repeat="plan in getPlanType()"><a>{{plan}}</a></li>
+                        </ul>
+                    </div>
+                    <div class="cost" ng-show="isMemberPlanTypeMonthly()">
+                        <span> Data costs:  </span> <i>$0.05/GB storage + $0.05/GB ingested + $0.05/GB queried</i>
+                    </div>
+                    <span class="plan-warning pt8" ng-show="isWarn()"><b>Warning</b>: downgrading to a free account will limit all your datadocs to 100k rows.
+                    <br><b>Are you sure you want to downgrade this account?</b></span>
+
+                </dd>
+            </dl>
+        </div>
+
+        <div class="form-group" ng-show="isMemberAccountTypeBusiness()">
+            <dl class="dl-horizontal">
+                <dt>Num Users</dt>
+                <dd>
+                    <div uib-dropdown append-to-body class="dropdown user-number">
+                        <div uib-dropdown-toggle class="form-control">{{member.numberOfLicenses}}</div>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li class="dropdown-menu-item" ng-click="selectUserNumbers(users)" ng-repeat="users in madUserNumber"><a>{{users}}</a></li>
+                        </ul>
+                    </div>
+                    <span ng-show="member.numberOfLicenses < account.usedLicense" class="plan-warning pt8"><b>Warning</b>: You already have {{account.usedLicense}} number of users currently using licences on your account. You will need to remove users from your account in order to decrease the number of user licences to {{member.numberOfLicenses}} </span>
+                </dd>
+            </dl>
+
+        </div>
+        <div class="form-group" ng-show="cardDisplay()">
+            <dl class="dl-horizontal">
+                <dt >CC#</dt>
+                <dd>
+                    <div class="form-row">
+                        <!--<span for="card-element" class="">-->
+                        <!--Credit or debit card-->
+                        <!--</span>-->
+                        <div id="card-element">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+
+                        <!-- Used to display Element errors. -->
+                        <div id="card-errors" role="alert" class="error"></div>
+                        <div class="error" ng-bind="error"></div>
+                    </div>
+                </dd>
+                <dd>
+                    <div class="cost">
+                        <span ng-show="applyCost" class="">Your card will be charged ${{updatedCharge}}</span>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <span class="error" ng-show="failedError && failedError != ''" ng-bind="failedError"></span>
+    </div>
+    <div class="modal-footer" ng-if="!accountDetailsUpdated">
+        <button type="submit"
+                class="btn btn-primary"
+                ng-disabled="submitClicked || member.numberOfLicenses < account.usedLicense"
+                autofocus>UPDATE ACCOUNT</button>
+
+        <button type="button"
+                class="btn btn-default-flat-goog pull-right"
+                ng-click="closeMyAccountDetailsModal()" autofocus>Cancel</button>
+    </div>
+</form>

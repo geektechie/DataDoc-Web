@@ -1,0 +1,446 @@
+.my-account{
+    padding: 30px;
+    .user-input{
+        position:relative;
+        .notification{
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            padding: .60rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: auto;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+    }
+    .my-account-content{
+        background:#fff;
+        border:1px solid #e3e3e3;
+        padding:15px 18px 30px 18px;
+        .frm-title{
+            background: #f8f8fb;
+            padding: 10px 9px 7px;
+            color: #777f88;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom:20px;
+        }
+        .dropdown{
+            .form-control{
+                cursor:pointer;
+            }
+        }
+        .form-group{
+            .red{
+                color:#ff0000;
+            }
+            .dl-horizontal {
+                margin-bottom:0;
+                .history-link{
+                    font-size:12px;
+                }
+                dt {
+                    width: 86px;
+                }
+            }
+            .dl-horizontal dd {
+                margin-left: 108px;
+                .plan-warning{
+                    margin-left:104px;
+                }
+
+                .google-signup{
+                    color:#888c88;
+                }
+                .mailid{
+                    font-size:12px;
+                }
+            }
+            &.google{
+                margin-bottom: 34px;
+            }
+        }
+        .close-account{
+          padding:15px 0px 10px 0px;
+          span{
+            padding-top: 7px;
+            padding-left:30px;
+            display: inline-block;
+          }
+          .btn-default-flat-goog{
+            margin-right:-47px;
+          }
+        }
+        .google{
+            dt{
+                width: 50px;
+            }
+            dd{
+                margin-left: 65px;
+                span{
+                    color:#dd4b39;
+                    font-weight:600;
+                }
+                .mailid{
+                    color:#888c88;
+                }
+                .btn-default-flat-goog{
+                    margin-right:0;
+                }
+            }
+        }
+        .connected-account{
+            .frm-title{
+                margin-bottom: 14px !important;
+            }
+        }
+    }
+    button{
+        &.button-link{
+            background: 0 0;
+            border: 0;
+            color: #337ab7;
+            font-size: 12px;
+            padding: 0px 2px;
+        }
+    }
+    &.billing-history-page{
+        height:100%;
+        .my-account-content{
+            padding: 26px 28px 30px;
+            height:100%;
+            .frm-title{
+                color:#6f7a89;
+            }
+            .table-container{
+                overflow-x:auto;
+                .data-usage{
+                    span{
+                        color: #838383;
+                        font-size: 13px;
+                        padding-left:8px;
+                        span{
+                            color:#333;
+                            font-weight:bold;
+                        }
+                    }
+                }
+                .table{
+                    min-width: 762px;
+                    margin-top:10px;
+                    &.borderless{
+                        *{
+                            border:0;
+                        }
+                    }
+                    td{
+                        color:#838383;
+                        font-size:13px;
+                        .status{
+                            span{
+                                float:left;
+                            }
+                            .download-invoice{
+                                background: url(/static/img/download-invoice.png) center center/cover no-repeat;
+                                width: 16px;
+                                height: 16px;
+                                display: block;
+                                margin: 2px 10px 0px 0px;
+                                float: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+    .modal-dialog{
+        .delete-modal{
+            .modal-body{
+                    max-height: none;
+                    overflow: unset;
+            }
+        }
+        .my-account-popups{
+            .modal-body{
+                .StripeElement {
+                    background-color: white;
+                    height: 34px;
+                    padding: 7px 12px 8px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 1px 3px 0 #e6ebf1;
+                    -webkit-transition: box-shadow 150ms ease;
+                    transition: box-shadow 150ms ease;
+                }
+                .StripeElement--focus {
+                    box-shadow: 0 1px 3px 0 #cfd7df;
+                }
+                .StripeElement--invalid {
+                    border-color: #fa755a;
+                }
+                .StripeElement--webkit-autofill {
+                    background-color: #fefde5 !important;
+                }
+                .dropdown{
+                    cursor:pointer;
+                }
+            }
+            .modal-footer{
+                padding-top: 10px;
+                button{
+                    margin-left: 10px;
+                    &.btn-primary{
+                        background:#4688F1;
+                        border-color:#4688F1!important;
+                        /*padding: 6px 18px;*/
+                        color:#fff;
+                        font-weight:600;
+                        border-radius: 2px;
+                        border: 0px;
+                    }
+                    &.btn-default-flat-goog{
+                        margin-left:10px;
+                    }
+                }
+            }
+            &.change-password-modal{
+                .dl-horizontal{
+                    dt{
+                        width:96px;
+                    }
+                }
+            }
+            &.change-email-modal{
+                .email-code{
+                    hr{
+                        margin-bottom: 48px;
+                    }
+                }
+            }
+            &.my-account-details-modal{
+                .modal-body{
+                    .dl-horizontal{
+                        dt{
+                            margin-top: 7px;
+                            width:104px;
+                        }
+                        .cost{
+                            padding-bottom: 0px!important;
+                            margin-top: 5px;
+                            margin-left:0;
+                        }
+                        dd{
+                            .plan-warning{
+                                display:block;
+                            }
+                            &.degrade{
+                                .plan-warning{
+                                    display:none;
+                                }
+                            }
+                            .list-group-item {
+                                 padding: 6px 15px 1px;
+                                 label,b{
+                                    font-weight:400;
+                                    color:#555;
+                                 }
+                             }
+                            .dropdown{
+                                &.user-number{
+                                    .dropdown-menu{
+                                         max-height: 140px;
+                                         overflow: auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.update-indicator{
+                        padding-bottom:50px;
+                        i{
+                            color: #41AD49;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+.pt8{
+    padding-top: 8px !important;
+}
+.pt10{
+    padding-top: 8px !important;
+}
+.pb20{
+    padding-bottom: 20px !important;
+}
+.pb30{
+    padding-bottom: 30px !important;
+}
+.pt20{
+    padding-top: 20px !important;
+}
+.pt40{
+    padding-top:40px !important;
+}
+.mt5{
+    margin-top:5px !important;
+}
+input.ng-touched.ng-invalid {
+    border: 1px solid #ccc !important;
+}
+.navbar-wrapper {
+  height: auto;
+}
+.navbar{
+    margin-bottom:0;
+}
+.h-450{
+    max-height:450px;
+    overflow-y:auto;
+}
+  .add-source-modal{
+    &.add-member-modal{
+      .modal-title{
+          color:#000;
+      }
+      .modal-body{
+          overflow-y: visible;
+          max-height: none;
+          padding-top: 20px;
+          .licence-msg{
+              dd{
+                  font-size: 13px;
+              }
+          }
+          .dl-horizontal{
+              margin-bottom: 7px;
+          }
+          .dropdown{
+              cursor:pointer;
+          }
+      }
+    }
+  }
+
+#wrapper[ng-click] {
+    cursor: default;
+}
+@media only screen and (max-width: 1200px) {
+    .main-page {
+        .homescreen-container{
+            .my-account {
+                .my-account-content {
+                    .row {
+                        margin-right: -18px;
+                        margin-left: -18px;
+                        .close-account{
+                            padding: 15px 0 10px 0px;
+                            button{
+                                &.btn-default-flat-goog{
+                                    &.pull-right{
+                                        float:left !important;
+                                        margin: 12px 0 0 0;
+                                    }
+                                }
+                            }
+                            span {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+.main-page {
+    .homescreen-container{
+        min-width:auto;
+            .my-account {
+            padding: 15px 15px;
+                .my-account-content {
+                    .frm-title{
+                        margin-bottom:0;
+                    }
+                    .pb30 {
+                        padding-bottom: 15px!important;
+                    }
+                    .pt20 {
+                        padding-top: 5px!important;
+                    }
+                    .account-preferences{
+
+                    }
+                    .form-group {
+                        margin-bottom:0;
+                        .dl-horizontal {
+                            margin-bottom: 15px;
+                            dt {
+                                width: 100%;
+                                margin-bottom:2px;
+                            }
+                            dd {
+                                margin-left: 0;
+                                .dropdown-toggle{
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    padding: 6px 20px 6px 12px;
+                                }
+                            }
+                        }
+                    }
+                    .google{
+                        .dl-horizontal{
+                            display:flex;
+                            dt{
+                                flex: 0 1 30px;
+                                margin-left:20px;
+                            }
+                            dd{
+                                flex: 1 1 auto;
+                            }
+                        }
+                    }
+                    .your-plan{
+                        .dl-horizontal{
+                            display:flex;
+                            dt{
+                                flex: 0 1 86px;
+                            }
+                            dd{
+                                flex: 1 1 auto;
+                                span{
+                                    &.red{
+                                        color:#ff0000;
+                                    }
+                                }
+                            }
+                        }
+                        button{
+                            &.button-link{
+                                display:block;
+                            }
+                        }
+                        .billing-hostory{
+                            dt{
+                                display:none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

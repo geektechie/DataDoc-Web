@@ -1,0 +1,57 @@
+<section class="login-panel">
+  <div class="login-content-wrapper col-lg-12 col-md-12">
+    <div class="content">
+      <div class="radio-option margin bld-600">
+        Don't have an account yet? <a ui-sref="auth.register">Sign up</a>
+      </div>
+
+      <form ng-submit="signIn()">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Sign in to Datadocs</h3>
+            <h4 ng-if = "fromJoinCompanyLink">to join your team on <span>{{companyName}}</span></h4>
+          </div>
+
+          <div class="panel-body">
+            <div class="panel-content-wrapper">
+              <section>
+                <input id="username-input" type="text" ng-model="username" placeholder="username" class="form-control" aria-describedby="login-addon" autocorrect="off" autocapitalize="none" ng-disabled = "fromJoinCompanyLink">
+              </section>
+
+              <section>
+                <input type="password" ng-model="password" placeholder="Password" class="form-control" aria-describedby="password-addon" autocorrect="off" autocapitalize="none">
+              </section>
+
+              <section class="error-section" ng-show="error">
+                <div class="error" ng-bind="error"></div>
+              </section>
+
+              <section class="sign-in-button-wrapper">
+                <button type="submit" class="btn btn-primary-cstm sign-in" ladda="signingIn">Sign in</button>
+              </section>
+
+              <!-- <section>
+                <a ui-sref="auth.forgot-password" class="forgot-password pull-right">Forgot password?</a>
+              </section>
+
+              <section>
+                <hr />
+                <div class="radio-option or-login">
+                  Or log in with
+                </div>
+                <div class="google-auth-wrapper">
+                  <google-auth button-id="gSignIn" options="options" mode="login"></google-auth>
+                </div>
+                <section class="error-section" ng-show="googleAuthError">
+                  <br>
+                  <div class="error" ng-bind="googleAuthError"></div>
+                </section>
+              </section> -->
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="revision">build: %revision%, %upload-date% </div>
+</section>

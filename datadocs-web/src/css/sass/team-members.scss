@@ -1,0 +1,187 @@
+.team-members-content{
+    &.homescreen-wrapper{
+        width:100%;
+        .members-list{
+             height: 52px;
+             border-right: 1px solid #e3e3e3;
+             border-left: 1px solid #e3e3e3;
+             border-bottom: 1px solid #e3e3e3;
+             background-color: #fff;
+             display: flex;
+             align-items: center;
+
+             &.selected {
+               background-color: #3E82F8 !important;
+
+               border-bottom: 1px solid transparent;
+
+               .first-column {
+                 color: #fff;
+               }
+
+               .first-column .icon {
+                 background: #fff;
+               }
+               .btn-default {
+                 background-color: #3E82F8 !important;
+               }
+               .btn-group .btn.dropdown-toggle {
+                .caret{
+                   color: #ffffff;
+                 }
+                 color: #ffffff;
+               }
+
+               .name, .second-column, .third-column {
+                 color: white;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+               }
+               .role-label{
+                 color:#ffffff;
+               }
+               .member-dates{
+                   color: #ffffff;
+               }
+               .member-role{
+                    color: #ffffff;
+               }
+               .member-name{
+                    color:#ffffff;
+                   &.italic{
+                       color:#ffffff;
+                   }
+                }
+             }
+
+             &.last {
+               border-bottom: none;
+             }
+
+             .member-name{
+                padding-left:25px;
+                &.italic{
+                    font-style:italic;
+                    color:#727272;
+                }
+             }
+             .member-role{
+                margin-left: -5px;
+             }
+             .member-dates, .role-label{
+                color:#636363;
+             }
+             .btn-group {
+                 .btn{
+                    &.dropdown-toggle{
+                        padding: 0;
+                        border: 0;
+                        color: #636363;
+                        .caret{
+                            margin-left:7px;
+                            color:#7c7c7c;
+                            border-top: 5px dashed;
+                            margin-top: -4px;
+                        }
+                    }
+                    &.btn-default{
+                        &:hover{
+                            background-color:transparent;
+                            -moz-box-shadow: none;
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                        }
+                        &:active{
+                            background-color:transparent;
+                            -moz-box-shadow: none;
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                        }
+                        &.focus{
+                            background-color:transparent;
+                            -moz-box-shadow: none;
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                        }
+                    }
+                 }
+                 &.open{
+                    .btn{
+                        &.dropdown-toggle{
+                             -moz-box-shadow: none;
+                             -webkit-box-shadow: none;
+                             box-shadow: none;
+                        }
+                    }
+                    >.dropdown-toggle.btn-default{
+                        background-color:transparent;
+                    }
+                 }
+             }
+        }
+        .upload-item {
+            height: 52px;
+
+            border-right: 1px solid #e3e3e3;
+            border-left: 1px solid #e3e3e3;
+            border-bottom: 1px solid #e3e3e3;
+
+            &.drop-active {
+              background-color: #eef6ff;
+              box-shadow: inset 0 0 0 2px #0480be;
+            }
+
+            &.selected {
+              background-color: #3E82F8 !important;
+
+              border-bottom: 1px solid transparent;
+
+              .first-column .icon {
+                background: #fff;
+              }
+
+              .name, .second-column, .third-column {
+                color: white;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+
+            &.last {
+              border-bottom: none;
+            }
+
+            .name {
+              user-select: none;
+              > div {
+                user-select: none;
+              }
+            }
+          }
+
+          &.last {
+            border-bottom: none;
+
+            .upload-item {
+              border-bottom: none;
+            }
+          }
+
+          .first-column {
+            padding: 8px 5px;
+          }
+
+
+          .first-column {
+            .name {
+              margin-left: 10px;
+
+              .has-subitems {
+                display: flex;
+              }
+            }
+          }
+    }
+}

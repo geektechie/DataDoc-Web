@@ -1,0 +1,39 @@
+<form class="delete-modal add-source-modal update-credit-card-modal my-account-popups" id="update-credit-card" name="updateCreditCard" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeUpdateCreditCardModal()">&times;</button>
+        <h4 class="modal-title">
+            Update Credit Card
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <dl class="dl-horizontal">
+                <dt>New CC#</dt>
+                <dd>
+                    <div class="form-row">
+                        <!--<span for="card-element" class="">-->
+                        <!--Credit or debit card-->
+                        <!--</span>-->
+                        <div id="UpdateCardElement">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+
+                        <!-- Used to display Element errors. -->
+                        <div id="card-errors" role="alert" class="error"></div>
+                        <div class="error" ng-bind="error"></div>
+                    </div>
+                    <span class="error" ng-show="failedError && failedError != ''" ng-bind="failedError"></span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit"
+                class="btn btn-primary"
+                ng-click="submitted=true" autofocus>SAVE</button>
+
+        <button type="button"
+                class="btn btn-default-flat-goog pull-right"
+                ng-click="closeUpdateCreditCardModal()" autofocus>Cancel</button>
+    </div>
+</form>

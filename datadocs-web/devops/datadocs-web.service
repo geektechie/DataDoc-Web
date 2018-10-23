@@ -1,0 +1,14 @@
+[Unit]
+Description=Datadocs Frontend
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/default/datadocs-web
+TimeoutStartSec=0
+Restart=none
+ExecStart=/usr/bin/docker run --rm --name datadocs-web -e SERVER_NAME='dev.datadocs.com' -e PROXY_URL_PORT='https://10.138.0.7:9100' -v /etc/letsencrypt:/etc/letsencrypt -p 443:443 gcr.io/datadocs-163219/datadocs-web:dev
+ExecStop=/usr/bin/docker stop %n
+
+[Install]
+WantedBy=multi-user.target

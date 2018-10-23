@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <!-- Start of Async Drift Code -->
+    <script>
+        "use strict";
+
+        !function() {
+          var t = window.driftt = window.drift = window.driftt || [];
+          if (!t.init) {
+            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+            t.factory = function(e) {
+              return function() {
+                var n = Array.prototype.slice.call(arguments);
+                return n.unshift(e), t.push(n), t;
+              };
+            }, t.methods.forEach(function(e) {
+              t[e] = t.factory(e);
+            }), t.load = function(t) {
+              var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+              o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+              var i = document.getElementsByTagName("script")[0];
+              i.parentNode.insertBefore(o, i);
+            };
+          }
+        }();
+        drift.SNIPPET_VERSION = '0.3.1';
+        drift.load('yy8bkvp4755g');
+  </script>
+    <!-- End of Async Drift Code -->
+
+    <title>Datadocs</title>
+
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="static/css/build.css?v=1537531941"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+</head>
+    <body>
+
+        <div class="navbar-wrapper">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header main-navbar-header">
+                    <a class="navbar-brand" ></a>
+                </div>
+                <div class="flex-spacer"></div>
+            </nav>
+        </div>
+
+        <div id="wrapper" class="resizable-wrapper mdc-typography">
+            <div id="page-content-wrapper" class="main-page-wrapper page-content-wrapper landing-page-content-wrapper">
+                <div class="main-page">
+                    <div class="homescreen-container landing-container">
+                        <div class="landing-page">
+                            <div class="landing-container__table">
+                                <div class="landing-container__table__top">
+                                    <div class="landing-container__table__top__left">
+                                        <div class="landing-container__table__top__left_content">
+                                            <h2 class="landing-container__table__top__left__title dd--heading">Simplifying data</h2>
+                                            <div class="landing-container__table__left__text dd--body1">Datadocs allows individuals and organizations to work with data of any size with the ease of use of Excel and the collaborative possibilities of Google Docs.</div>
+                                            <a href="https://dev.datadocs.con/app#/register">
+                                                <button class="create-doc blue spacing-top get-started-btn"
+                                                        uib-tooltip="Click to start"
+                                                        tooltip-placement="top"
+                                                        tooltip-popup-delay="250"
+                                                        tooltip-append-to-body="true"
+                                                        tooltip-class="main-page-tooltip">
+                                                <span class="get-started-btn__text">
+                                                Get Started
+                                                </span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="landing-container__table__top__right">
+                                        <div class="landing-container__table__top__right__video">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/6XdGtqBJFrw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="landing-container__table__top__right__video__iframe"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-bottom">
+                                <div class="landing-container__bottom"></div>
+                            </div>
+                            <footer class="footer">
+                                <div class="footer__logo">
+                                    Datadocs
+                                </div>
+                                <div class="footer__logo-items">
+                                    <ul>
+                                        <li><a href="/privacy-policy">Privacy</a></li>
+                                        <li><a href="/terms">Terms</a></li>
+                                    </ul>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

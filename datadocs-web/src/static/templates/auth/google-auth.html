@@ -1,0 +1,12 @@
+<div id="gSignInWrapper">
+    <div id="gAuthBtn">
+        <div class="google-auth-button" ng-if="mode != 'connect'">
+            <span class="icon"></span>
+            <span class="'buttonText">{{title}}</span>
+        </div>
+        <div ng-if="mode == 'connect'">
+            <button class="btn btn-default-flat-goog pull-right">{{title}}</button>
+        </div>
+    </div>
+</div>
+<div id="name"></div>

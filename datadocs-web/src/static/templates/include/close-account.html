@@ -1,0 +1,23 @@
+<form class="delete-modal close-accout-modal my-account-popups">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancelCloseAccountModal()">&times;</button>
+        <h4 class="modal-title">Cancel Account?</h4>
+    </div>
+    <div class="modal-body pt20">
+        <div>
+                <div>
+                    <span ng-if="isCompanyOwner"><b>Warning!</b> because you are the sole owner of this company account, closing your account will delete the company account, removing all team members from it.</span>
+                    <span><b> Are you sure you want to cancel this account?</b></span>
+                </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default-flat-goog pull-right"
+                ng-click="cancelCloseAccountModal()">Cancel</button>
+
+        <button type="submit"
+                class="btn btn-primary-goog pull-right"
+                ladda="deleteUploadOptions.deleting"
+                ng-click="closeAccount()" autofocus>CLOSE ACCOUNT</button>
+    </div>
+</form>

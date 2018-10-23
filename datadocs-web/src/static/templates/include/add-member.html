@@ -1,0 +1,59 @@
+<form ng-submit="addMember()" class="delete-modal add-source-modal add-member-modal my-account-popups" name="addMemberForm" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close()">&times;</button>
+        <h4 class="modal-title">
+            Add New Member
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="remaining-title">
+            <dl class="dl-horizontal licence-msg">
+                <dt>&nbsp;</dt>
+                <dd><span>You have <b> {{account.numberOfLicenses - account.usedLicense}} </b> licences remaining. Need to add more? </span><a href="#">click here.</a></dd>
+            </dl>
+        </div>
+
+        <div class="form-group">
+            <dl class="dl-horizontal">
+                <dt>Role</dt>
+                <dd>
+                    <div uib-dropdown append-to-body class="dropdown">
+                        <div uib-dropdown-toggle class="form-control" ng-disabled="account.numberOfLicenses - account.usedLicense == 0">{{member.role}}</div>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li class="dropdown-menu-item" ng-click="roleSelected('Admin')"><a>Admin</a></li>
+                            <li class="divider">Director</li>
+                            <li class="dropdown-menu-item" ng-click="roleSelected('Member')"><a>Member</a></li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="form-group">
+            <dl class="dl-horizontal">
+                <dt>Email</dt>
+                <dd>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="emailId" ng-disabled="account.numberOfLicenses - account.usedLicense == 0" ng-model="member.emailId" ng-pattern="/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/" required>
+                    </div>
+                    <span class='error' ng-show="submitted && addMemberForm.emailId.$error.required"> Email is required. </span>
+                    <span class='error' ng-show="submitted && addMemberForm.emailId.$error.pattern"> Email is invalid. </span>
+                    <section class="error-section" ng-show="error && error != ''">
+                        <div class="error" ng-bind="error"></div>
+                    </section>
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit"
+                class="btn btn-primary"
+                ng-if="account.numberOfLicenses - account.usedLicense != 0" autofocus>ADD</button>
+
+        <button type="button"
+                class="btn btn-default-flat-goog pull-right"
+                ng-click="close()" autofocus>Cancel</button>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+<div class="upload-item members-list movable no-select" ng-class="{'selected': isMemberSelected(u)}">
+    <input type="hidden" class="uid" value="{{u.id}}">
+    <div class="col-md-6 col-sm-6 col-xs-4 member-name" ng-class="{'italic': !u.registered}">
+        <div class="">
+            {{u.registered?u.email:u.email+' (pending)'}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-4 member-role">
+        <div class="btn-group" uib-dropdown>
+            <button type="button" ng-if="u.role != 'Owner'" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{u.role}} <span class="caret"></span>
+            </button>
+
+            <div ng-if="u.role == 'Owner'" class="role-label">
+                {{u.role}}
+            </div>
+
+            <ul class="dropdown-menu" uib-dropdown>
+                <li><a ng-click="modifyMember('Member',u.email, $event)">Member</a></li>
+                <li><a ng-click="modifyMember('Admin',u.email, $event)">Admin</a></li>
+                <li ng-if="!memberIsLoggedInUser(u)" role="separator" class="divider"></li>
+                <li ng-if="!memberIsLoggedInUser(u)"><a ng-click="showRemoveMemberPopup(u.email, $event)" style="color:red">Remove member</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-4 member-dates third-column">
+        <div class="">
+            {{u.createdDate | date}}
+        </div>
+    </div>
+</div>
